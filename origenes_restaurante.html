@@ -1,0 +1,1137 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Orígenes Restaurante & Cafetería</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --gold: #C9A84C;
+    --gold-light: #E8C97A;
+    --gold-dark: #8B6914;
+    --black: #0A0A0A;
+    --black-soft: #111111;
+    --black-card: #161616;
+    --cream: #F5EDD6;
+    --cream-dark: #E8D9B5;
+    --text-muted: #9A8A6A;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--black);
+    color: var(--cream);
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 300;
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 1.2rem 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: linear-gradient(to bottom, rgba(10,10,10,0.98), transparent);
+    border-bottom: 0.5px solid rgba(201,168,76,0.2);
+  }
+
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+  }
+
+  .nav-logo img {
+    height: 48px;
+    width: 48px;
+    border-radius: 50%;
+  }
+
+  .nav-brand {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    color: var(--gold);
+    letter-spacing: 0.05em;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    color: var(--cream-dark);
+    text-decoration: none;
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    font-weight: 400;
+    transition: color 0.3s;
+  }
+
+  .nav-links a:hover { color: var(--gold); }
+
+  .nav-cta {
+    background: transparent;
+    border: 1px solid var(--gold);
+    color: var(--gold);
+    padding: 0.6rem 1.5rem;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s;
+    text-decoration: none;
+  }
+
+  .nav-cta:hover {
+    background: var(--gold);
+    color: var(--black);
+  }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    background:
+      radial-gradient(ellipse 60% 60% at 50% 50%, rgba(201,168,76,0.07) 0%, transparent 70%),
+      var(--black);
+    padding: 8rem 2rem 4rem;
+  }
+
+  .hero-bg-pattern {
+    position: absolute;
+    inset: 0;
+    background-image:
+      repeating-linear-gradient(45deg, rgba(201,168,76,0.03) 0px, rgba(201,168,76,0.03) 1px, transparent 1px, transparent 60px),
+      repeating-linear-gradient(-45deg, rgba(201,168,76,0.03) 0px, rgba(201,168,76,0.03) 1px, transparent 1px, transparent 60px);
+    pointer-events: none;
+  }
+
+  .hero-content {
+    text-align: center;
+    max-width: 900px;
+    position: relative;
+    z-index: 1;
+    animation: fadeUp 1.2s ease both;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero-logo {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    margin: 0 auto 2.5rem;
+    display: block;
+    box-shadow: 0 0 60px rgba(201,168,76,0.25);
+    animation: fadeUp 1s ease 0.2s both;
+  }
+
+  .hero-tagline {
+    font-size: 0.72rem;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1.5rem;
+    animation: fadeUp 1s ease 0.3s both;
+  }
+
+  .hero-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(3rem, 8vw, 6rem);
+    font-weight: 400;
+    line-height: 1.1;
+    color: var(--cream);
+    margin-bottom: 1rem;
+    animation: fadeUp 1s ease 0.4s both;
+  }
+
+  .hero-title em {
+    font-style: italic;
+    color: var(--gold);
+  }
+
+  .hero-subtitle {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+    font-weight: 300;
+    font-style: italic;
+    color: var(--text-muted);
+    margin-bottom: 3rem;
+    line-height: 1.6;
+    animation: fadeUp 1s ease 0.5s both;
+  }
+
+  .hero-divider {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    justify-content: center;
+    margin-bottom: 3rem;
+    animation: fadeUp 1s ease 0.55s both;
+  }
+
+  .hero-divider-line {
+    width: 80px;
+    height: 0.5px;
+    background: linear-gradient(to right, transparent, var(--gold));
+  }
+
+  .hero-divider-line.right {
+    background: linear-gradient(to left, transparent, var(--gold));
+  }
+
+  .hero-divider-diamond {
+    width: 8px;
+    height: 8px;
+    background: var(--gold);
+    transform: rotate(45deg);
+  }
+
+  .hero-buttons {
+    display: flex;
+    gap: 1.2rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    animation: fadeUp 1s ease 0.6s both;
+  }
+
+  .btn-primary {
+    background: var(--gold);
+    color: var(--black);
+    padding: 1rem 2.5rem;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.3s;
+  }
+
+  .btn-primary:hover {
+    background: var(--gold-light);
+    transform: translateY(-2px);
+  }
+
+  .btn-outline {
+    background: transparent;
+    color: var(--cream);
+    padding: 1rem 2.5rem;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 400;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    border: 1px solid rgba(245,237,214,0.3);
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.3s;
+  }
+
+  .btn-outline:hover {
+    border-color: var(--gold);
+    color: var(--gold);
+    transform: translateY(-2px);
+  }
+
+  .hero-scroll {
+    position: absolute;
+    bottom: 2.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--text-muted);
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    animation: fadeUp 1s ease 0.9s both;
+  }
+
+  .scroll-line {
+    width: 1px;
+    height: 40px;
+    background: linear-gradient(to bottom, var(--gold), transparent);
+    animation: scrollLine 2s ease-in-out infinite;
+  }
+
+  @keyframes scrollLine {
+    0%, 100% { opacity: 1; transform: scaleY(1); transform-origin: top; }
+    50% { opacity: 0.4; transform: scaleY(0.5); transform-origin: top; }
+  }
+
+  /* SECTION COMMONS */
+  section {
+    padding: 6rem 2rem;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .section-label {
+    font-size: 0.68rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1rem;
+    display: block;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 400;
+    color: var(--cream);
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+  }
+
+  .section-title em { font-style: italic; color: var(--gold); }
+
+  .section-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.15rem;
+    font-weight: 300;
+    color: var(--text-muted);
+    line-height: 1.9;
+    max-width: 600px;
+  }
+
+  .gold-line {
+    width: 50px;
+    height: 1px;
+    background: var(--gold);
+    margin-bottom: 2rem;
+  }
+
+  /* ABOUT */
+  .about {
+    background: var(--black-soft);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .about::before {
+    content: '"';
+    position: absolute;
+    top: -2rem;
+    right: -2rem;
+    font-family: 'Playfair Display', serif;
+    font-size: 25rem;
+    color: rgba(201,168,76,0.04);
+    line-height: 1;
+    pointer-events: none;
+  }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+    align-items: center;
+  }
+
+  .about-values {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
+
+  .value-card {
+    background: var(--black-card);
+    border: 0.5px solid rgba(201,168,76,0.2);
+    padding: 1.5rem;
+    transition: border-color 0.3s, transform 0.3s;
+  }
+
+  .value-card:hover {
+    border-color: var(--gold);
+    transform: translateY(-3px);
+  }
+
+  .value-icon {
+    font-size: 1.5rem;
+    margin-bottom: 0.8rem;
+    display: block;
+  }
+
+  .value-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    color: var(--gold);
+    margin-bottom: 0.5rem;
+  }
+
+  .value-desc {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+  }
+
+  .about-visual {
+    position: relative;
+  }
+
+  .about-image-frame {
+    aspect-ratio: 3/4;
+    background: var(--black-card);
+    border: 1px solid rgba(201,168,76,0.3);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .about-image-frame::before {
+    content: '';
+    position: absolute;
+    inset: 12px;
+    border: 0.5px solid rgba(201,168,76,0.15);
+  }
+
+  .about-accent {
+    position: absolute;
+    bottom: -1.5rem;
+    right: -1.5rem;
+    width: 180px;
+    height: 180px;
+    border: 1px solid rgba(201,168,76,0.2);
+    z-index: -1;
+  }
+
+  .about-logo-display {
+    width: 60%;
+    opacity: 0.85;
+    filter: drop-shadow(0 0 30px rgba(201,168,76,0.2));
+  }
+
+  /* PILLARS */
+  .pillars {
+    background: var(--black);
+    text-align: center;
+  }
+
+  .pillars-header {
+    max-width: 600px;
+    margin: 0 auto 4rem;
+  }
+
+  .pillars-header .section-text {
+    margin: 0 auto;
+    text-align: left;
+  }
+
+  .pillars-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    border: 0.5px solid rgba(201,168,76,0.15);
+  }
+
+  .pillar {
+    padding: 3rem 2rem;
+    border-right: 0.5px solid rgba(201,168,76,0.15);
+    transition: background 0.3s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .pillar:last-child { border-right: none; }
+
+  .pillar::before {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 2px;
+    background: var(--gold);
+    transform: scaleX(0);
+    transition: transform 0.4s;
+    transform-origin: left;
+  }
+
+  .pillar:hover::before { transform: scaleX(1); }
+  .pillar:hover { background: rgba(201,168,76,0.04); }
+
+  .pillar-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    color: rgba(201,168,76,0.15);
+    font-weight: 700;
+    margin-bottom: 1rem;
+    display: block;
+    line-height: 1;
+  }
+
+  .pillar-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    color: var(--gold);
+    margin-bottom: 1rem;
+  }
+
+  .pillar-text {
+    font-size: 0.83rem;
+    color: var(--text-muted);
+    line-height: 1.7;
+  }
+
+  /* EXPERIENCE */
+  .experience {
+    background: var(--black-soft);
+    padding: 6rem 2rem;
+  }
+
+  .exp-grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 5rem;
+    align-items: start;
+  }
+
+  .exp-items {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .exp-item {
+    padding: 2rem 0;
+    border-bottom: 0.5px solid rgba(201,168,76,0.15);
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+
+  .exp-item:first-child { border-top: 0.5px solid rgba(201,168,76,0.15); }
+
+  .exp-item-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 0.8rem;
+  }
+
+  .exp-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 0.85rem;
+    color: var(--gold);
+    min-width: 24px;
+  }
+
+  .exp-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    color: var(--cream);
+  }
+
+  .exp-desc {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    line-height: 1.7;
+    padding-left: 2.5rem;
+  }
+
+  .exp-feature-box {
+    background: var(--black-card);
+    border: 1px solid rgba(201,168,76,0.25);
+    padding: 3rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .exp-feature-box::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 3px;
+    height: 100%;
+    background: linear-gradient(to bottom, var(--gold), transparent);
+  }
+
+  .exp-feature-icon {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+    display: block;
+  }
+
+  .exp-feature-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    color: var(--cream);
+    margin-bottom: 1rem;
+    line-height: 1.3;
+  }
+
+  .exp-feature-title em { color: var(--gold); font-style: italic; }
+
+  .exp-feature-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    line-height: 1.8;
+    margin-bottom: 2rem;
+  }
+
+  .exp-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .exp-tag {
+    background: transparent;
+    border: 0.5px solid rgba(201,168,76,0.4);
+    color: var(--gold);
+    padding: 0.4rem 1rem;
+    font-size: 0.68rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+  }
+
+  /* CELEBRATIONS */
+  .celebrations {
+    background: var(--black);
+    padding: 6rem 2rem;
+  }
+
+  .celebrations-inner {
+    background: var(--black-card);
+    border: 1px solid rgba(201,168,76,0.25);
+    padding: 5rem 4rem;
+    position: relative;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: center;
+  }
+
+  .celebrations-inner::after {
+    content: '';
+    position: absolute;
+    top: 0; right: 0;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle at top right, rgba(201,168,76,0.06), transparent 70%);
+    pointer-events: none;
+  }
+
+  .celebrations-badge {
+    display: inline-block;
+    background: var(--gold);
+    color: var(--black);
+    padding: 0.4rem 1.2rem;
+    font-size: 0.65rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+  }
+
+  .celebrations-list {
+    list-style: none;
+    margin-top: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+
+  .celebrations-list li {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+  }
+
+  .celebrations-list li::before {
+    content: '◆';
+    color: var(--gold);
+    font-size: 0.4rem;
+  }
+
+  .celebrations-visual {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .cel-stat {
+    background: var(--black-soft);
+    border-left: 2px solid var(--gold);
+    padding: 1.2rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+  }
+
+  .cel-stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    color: var(--gold);
+    line-height: 1;
+  }
+
+  .cel-stat-label {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    letter-spacing: 0.1em;
+  }
+
+  /* CONTACT / FINAL CTA */
+  .contact {
+    background: var(--black-soft);
+    padding: 6rem 2rem;
+    text-align: center;
+  }
+
+  .contact-inner {
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  .contact-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.2rem, 5vw, 3.5rem);
+    color: var(--cream);
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+  }
+
+  .contact-title em { color: var(--gold); font-style: italic; }
+
+  .contact-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem;
+    color: var(--text-muted);
+    line-height: 1.8;
+    margin-bottom: 3rem;
+  }
+
+  .contact-info {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    margin-top: 3rem;
+    flex-wrap: wrap;
+  }
+
+  .contact-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    align-items: center;
+  }
+
+  .contact-item-label {
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+
+  .contact-item-value {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    color: var(--cream);
+  }
+
+  /* FOOTER */
+  footer {
+    background: var(--black);
+    border-top: 0.5px solid rgba(201,168,76,0.15);
+    padding: 3rem 2rem;
+    text-align: center;
+  }
+
+  .footer-logo {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    margin: 0 auto 1.2rem;
+    display: block;
+  }
+
+  .footer-brand {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    color: var(--gold);
+    margin-bottom: 0.5rem;
+  }
+
+  .footer-tagline {
+    font-size: 0.72rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 2rem;
+  }
+
+  .footer-nav {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    list-style: none;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+  }
+
+  .footer-nav a {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.72rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    transition: color 0.3s;
+  }
+
+  .footer-nav a:hover { color: var(--gold); }
+
+  .footer-copy {
+    font-size: 0.72rem;
+    color: rgba(154,138,106,0.5);
+  }
+
+  /* SCROLL REVEAL */
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { display: none; }
+
+    .about-grid,
+    .exp-grid,
+    .celebrations-inner {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
+
+    .pillars-grid { grid-template-columns: 1fr 1fr; }
+
+    .celebrations-inner { padding: 3rem 2rem; }
+
+    .about-visual { display: none; }
+    .about-values { grid-template-columns: 1fr 1fr; }
+  }
+
+  @media (max-width: 600px) {
+    .pillars-grid { grid-template-columns: 1fr; }
+    .pillar { border-right: none; border-bottom: 0.5px solid rgba(201,168,76,0.15); }
+    .pillar:last-child { border-bottom: none; }
+    .about-values { grid-template-columns: 1fr; }
+    .hero-buttons { flex-direction: column; align-items: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">
+    <img src="LOGO_RESTAURANTE.png" alt="Orígenes Logo" onerror="this.style.display='none'">
+    <span class="nav-brand">Orígenes</span>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#nosotros">Nosotros</a></li>
+    <li><a href="#experiencia">Experiencia</a></li>
+    <li><a href="#celebraciones">Celebraciones</a></li>
+    <li><a href="#contacto">Contacto</a></li>
+  </ul>
+  <a href="#contacto" class="nav-cta">Reservar</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="inicio">
+  <div class="hero-bg-pattern"></div>
+  <div class="hero-content">
+    <img src="LOGO_RESTAURANTE.png" alt="Orígenes Restaurante" class="hero-logo" onerror="this.style.display='none'">
+    <p class="hero-tagline">Restaurante & Cafetería · Cochabamba, Bolivia</p>
+    <h1 class="hero-title">Donde la <em>tradición</em><br>cobra vida</h1>
+    <p class="hero-subtitle">Una experiencia que conecta el sabor con el alma,<br>la calidad con la calidez, los orígenes con el presente.</p>
+    <div class="hero-divider">
+      <div class="hero-divider-line"></div>
+      <div class="hero-divider-diamond"></div>
+      <div class="hero-divider-line right"></div>
+    </div>
+    <div class="hero-buttons">
+      <a href="#experiencia" class="btn-primary">Descubrir la experiencia</a>
+      <a href="#celebraciones" class="btn-outline">Eventos especiales</a>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <div class="scroll-line"></div>
+    <span>Explorar</span>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="nosotros">
+  <div class="container">
+    <div class="about-grid">
+      <div class="reveal">
+        <span class="section-label">Nuestra historia</span>
+        <h2 class="section-title">Más que un lugar,<br>un <em>sentimiento</em></h2>
+        <div class="gold-line"></div>
+        <p class="section-text">
+          Orígenes nació con un propósito claro: crear momentos memorables. Nos distinguimos por brindar una experiencia agradable, con productos cuidadosamente elaborados y los más altos estándares de higiene. Nuestro espacio amplio, cómodo y de atención de calidad es el escenario donde las historias suceden.
+        </p>
+        <div class="about-values">
+          <div class="value-card">
+            <span class="value-icon">☕</span>
+            <div class="value-title">Calidad</div>
+            <p class="value-desc">Ingredientes seleccionados y preparaciones cuidadas en cada plato y bebida.</p>
+          </div>
+          <div class="value-card">
+            <span class="value-icon">🏛️</span>
+            <div class="value-title">Comodidad</div>
+            <p class="value-desc">Un espacio amplio y acogedor diseñado para que te sientas en casa.</p>
+          </div>
+          <div class="value-card">
+            <span class="value-icon">✦</span>
+            <div class="value-title">Seguridad</div>
+            <p class="value-desc">Higiene y protocolos que garantizan tu tranquilidad en cada visita.</p>
+          </div>
+          <div class="value-card">
+            <span class="value-icon">★</span>
+            <div class="value-title">Experiencias</div>
+            <p class="value-desc">Momentos únicos que perduran en la memoria de quienes nos visitan.</p>
+          </div>
+        </div>
+      </div>
+      <div class="about-visual reveal">
+        <div class="about-image-frame">
+          <img src="LOGO_RESTAURANTE.png" alt="Orígenes" class="about-logo-display" onerror="this.style.display='none'; this.parentElement.style.background='#1a1a1a'">
+        </div>
+        <div class="about-accent"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PILLARS -->
+<section class="pillars" id="valores">
+  <div class="container">
+    <div class="pillars-header reveal">
+      <span class="section-label">Nuestros pilares</span>
+      <h2 class="section-title">Lo que nos<br>hace <em>únicos</em></h2>
+    </div>
+    <div class="pillars-grid reveal">
+      <div class="pillar">
+        <span class="pillar-num">01</span>
+        <div class="pillar-title">Tradición</div>
+        <p class="pillar-text">Conectamos nuestra identidad con los orígenes culinarios de la región, honrando sabores auténticos que cuentan historias.</p>
+      </div>
+      <div class="pillar">
+        <span class="pillar-num">02</span>
+        <div class="pillar-title">Higiene</div>
+        <p class="pillar-text">Cada detalle del proceso, desde la preparación hasta el servicio, cumple con los estándares más exigentes de limpieza y seguridad.</p>
+      </div>
+      <div class="pillar">
+        <span class="pillar-num">03</span>
+        <div class="pillar-title">Atención</div>
+        <p class="pillar-text">Un equipo comprometido con hacer que cada cliente se sienta especial, con calidez humana y servicio genuino.</p>
+      </div>
+      <div class="pillar">
+        <span class="pillar-num">04</span>
+        <div class="pillar-title">Ambiente</div>
+        <p class="pillar-text">Un espacio diseñado para crear vínculos emocionales con el lugar, donde cada rincón invita a quedarse.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section class="experience" id="experiencia">
+  <div class="container">
+    <div class="exp-grid">
+      <div class="exp-items reveal">
+        <span class="section-label">Vivir Orígenes</span>
+        <h2 class="section-title" style="margin-bottom:2rem">Una <em>experiencia</em><br>completa</h2>
+        <div class="exp-item">
+          <div class="exp-item-header">
+            <span class="exp-num">—01</span>
+            <div class="exp-title">Gastronomía auténtica</div>
+          </div>
+          <p class="exp-desc">Platos elaborados con cuidado, reflejando la riqueza de nuestros ingredientes y la pasión de nuestra cocina.</p>
+        </div>
+        <div class="exp-item">
+          <div class="exp-item-header">
+            <span class="exp-num">—02</span>
+            <div class="exp-title">Cafetería de especialidad</div>
+          </div>
+          <p class="exp-desc">Desde el primer sorbo hasta el último, una experiencia de café pensada para los que aprecian los detalles.</p>
+        </div>
+        <div class="exp-item">
+          <div class="exp-item-header">
+            <span class="exp-num">—03</span>
+            <div class="exp-title">Espacio & Ambiente</div>
+          </div>
+          <p class="exp-desc">Un entorno amplio y cómodo donde el tiempo pasa diferente, ideal para reuniones, trabajo o simplemente disfrutar.</p>
+        </div>
+        <div class="exp-item">
+          <div class="exp-item-header">
+            <span class="exp-num">—04</span>
+            <div class="exp-title">Pequeños detalles</div>
+          </div>
+          <p class="exp-desc">Son los detalles que marcan la diferencia frente a otras opciones: la presentación, la temperatura perfecta, la sonrisa del equipo.</p>
+        </div>
+      </div>
+
+      <div class="exp-feature-box reveal">
+        <span class="exp-feature-icon">◈</span>
+        <h3 class="exp-feature-title">La esencia de<br><em>Orígenes</em></h3>
+        <p class="exp-feature-text">
+          Nuestra propuesta busca generar momentos memorables dentro del lugar. Cada visita es una oportunidad para crear una conexión emocional genuina entre el cliente y el espacio. Porque creemos que un buen restaurante no solo alimenta el cuerpo, sino también el alma.
+        </p>
+        <p class="exp-feature-text">
+          La comodidad, la seguridad, la calidad y las experiencias únicas son los valores que deseamos reflejar y compartir con el mundo.
+        </p>
+        <div class="exp-tags">
+          <span class="exp-tag">Momentos únicos</span>
+          <span class="exp-tag">Calidad garantizada</span>
+          <span class="exp-tag">Conexión real</span>
+          <span class="exp-tag">Tradición boliviana</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CELEBRATIONS -->
+<section class="celebrations" id="celebraciones">
+  <div class="container">
+    <div class="celebrations-inner reveal">
+      <div>
+        <span class="celebrations-badge">Eventos especiales</span>
+        <h2 class="section-title">Celebra tus<br><em>momentos</em> especiales</h2>
+        <p class="section-text" style="margin-top:1rem">
+          Ofrecemos servicios personalizados para celebraciones como cumpleaños, reuniones familiares y encuentros de amigos. Una atención especial que es visible y distintiva dentro del mismo espacio.
+        </p>
+        <ul class="celebrations-list">
+          <li>Atención personalizada para grupos y familias</li>
+          <li>Decoración especial para cumpleaños</li>
+          <li>Menús adaptados a la ocasión</li>
+          <li>Espacio privado o semiprivado disponible</li>
+          <li>Coordinación completa del evento</li>
+          <li>Detalles sorpresa para el homenajeado</li>
+        </ul>
+        <br>
+        <a href="#contacto" class="btn-primary" style="margin-top:1.5rem">Consultar disponibilidad</a>
+      </div>
+
+      <div class="celebrations-visual">
+        <div class="cel-stat">
+          <span class="cel-stat-num">100%</span>
+          <span class="cel-stat-label">Servicio personalizado</span>
+        </div>
+        <div class="cel-stat">
+          <span class="cel-stat-num">★★★★★</span>
+          <span class="cel-stat-label">Atención de calidad</span>
+        </div>
+        <div class="cel-stat">
+          <span class="cel-stat-num">∞</span>
+          <span class="cel-stat-label">Momentos memorables</span>
+        </div>
+        <div class="value-card" style="margin-top:0.5rem">
+          <p style="font-family:'Cormorant Garamond',serif; font-size:1.05rem; font-style:italic; color:var(--text-muted); line-height:1.7">
+            "Cada celebración merece un espacio que esté a la altura del momento. En Orígenes, lo extraordinario es el estándar."
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contacto">
+  <div class="contact-inner reveal">
+    <span class="section-label">Visítanos</span>
+    <h2 class="contact-title">Tu próximo<br><em>momento memorable</em><br>comienza aquí</h2>
+    <p class="contact-text">
+      Reserva tu mesa, planifica tu celebración o simplemente ven a descubrir de qué se tratan los Orígenes. Estaremos encantados de recibirte.
+    </p>
+    <a href="tel:+59170000000" class="btn-primary">Hacer una reserva</a>
+
+    <div class="contact-info">
+      <div class="contact-item">
+        <span class="contact-item-label">Horario</span>
+        <span class="contact-item-value">Lun – Dom · 8:00 – 22:00</span>
+      </div>
+      <div class="contact-item">
+        <span class="contact-item-label">Ubicación</span>
+        <span class="contact-item-value">Cochabamba, Bolivia</span>
+      </div>
+      <div class="contact-item">
+        <span class="contact-item-label">Reservas</span>
+        <span class="contact-item-value">WhatsApp & Teléfono</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <img src="LOGO_RESTAURANTE.png" alt="Orígenes" class="footer-logo" onerror="this.style.display='none'">
+  <div class="footer-brand">Orígenes</div>
+  <p class="footer-tagline">Restaurante & Cafetería · Cochabamba, Bolivia</p>
+  <ul class="footer-nav">
+    <li><a href="#nosotros">Nosotros</a></li>
+    <li><a href="#valores">Valores</a></li>
+    <li><a href="#experiencia">Experiencia</a></li>
+    <li><a href="#celebraciones">Celebraciones</a></li>
+    <li><a href="#contacto">Contacto</a></li>
+  </ul>
+  <p class="footer-copy">© 2025 Orígenes Restaurante & Cafetería · Todos los derechos reservados</p>
+</footer>
+
+<script>
+const reveals = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.12 });
+reveals.forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
